@@ -1,9 +1,8 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Redirect } from '@nestjs/common';
 
 @Controller()
 export class DefaultController {
   @Get()
-  getRoot() {
-    return { message: 'Welcome to the Job Application API' };
-  }
+  @Redirect('/api/applications', 302) // Redirects to /api/applications
+  redirectToApplications() {}
 }
