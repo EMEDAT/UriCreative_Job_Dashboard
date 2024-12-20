@@ -1,0 +1,66 @@
+.application-table-container {
+    padding: 20px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .table-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .application-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .application-table th,
+  .application-table td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    text-align: left;
+  }
+  
+  .application-table th {
+    background: #2563eb;
+    color: white;
+  }
+  
+  .application-table tr:nth-child(even) {
+    background: #f9f9f9;
+  }
+  
+  .application-table tr:hover {
+    background: #f1f1f1;
+  }
+  
+  .status-badge {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: capitalize;
+  }
+  
+  .status-badge.accepted {
+    background: #e6ffe6;
+    color: #28a745;
+  }
+  
+  .status-badge.pending {
+    background: #fff8e1;
+    color: #ffc107;
+  }
+  
+  .status-badge.rejected {
+    background: #ffe6e6;
+    color: #dc3545;
+  }
+  
