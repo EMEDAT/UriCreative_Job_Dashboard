@@ -12,7 +12,14 @@ async function bootstrap() {
   });
 
   app.setGlobalPrefix('api'); // Set API prefix
-  await app.listen(3001);
-  console.log('Backend running on http://localhost:3001/api');
+
+  // Use environment variable for port or default to 3001
+  const port = process.env.PORT || 3001;
+
+  await app.listen(port);
+
+  // Dynamically determine the base URL
+  const serverUrl = process.env.RENDER_EXTERNAL_URL || `http://localhost:${port}`;
+  console.log(`Backend running on ${serverUrl}/api`);
 }
 bootstrap();
