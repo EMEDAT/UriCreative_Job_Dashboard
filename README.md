@@ -51,14 +51,14 @@ Ensure you have the following installed:
    git clone https://github.com/EMEDAT/UriCreative_Job_Dashboard.git
    cd UriCreative_Job_Dashboard
 Install dependencies for both backend and frontend:
-bash
-Copy code
 # Navigate to backend
 cd backend
 npm install
 
 # Navigate to frontend
 cd ../frontend
+npm install
+
 npm install
 Running the Project Locally 🏃‍♂️
 Backend
