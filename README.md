@@ -50,68 +50,94 @@ Ensure you have the following installed:
    ```bash
    git clone https://github.com/EMEDAT/UriCreative_Job_Dashboard.git
    cd UriCreative_Job_Dashboard
-Install dependencies for both backend and frontend:
-bash
-Copy code
-# Navigate to backend
-cd backend
-npm install
+   ```
 
-# Navigate to frontend
-cd ../frontend
-npm install
-Running the Project Locally 🏃‍♂️
-Backend
+2. Install dependencies for both backend and frontend:
+   ```bash
+   # Navigate to backend
+   cd backend
+   npm install
+
+   # Navigate to frontend
+   cd ../frontend
+   npm install
+   ```
+
+### Running the Project Locally 🏃‍♂️
+
+#### Backend
+
 Start the backend:
-
-bash
-Copy code
+```bash
 cd backend
 npm run start:dev
-The backend API will run on http://localhost:3001.
+```
+The backend API will run on [http://localhost:3001](http://localhost:3001).
 
-Frontend
+#### Frontend
+
 Start the frontend:
-
-bash
-Copy code
+```bash
 cd frontend
 npm run dev
-The frontend will run on http://localhost:3000.
+```
+The frontend will run on [http://localhost:3000](http://localhost:3000).
 
-Deployment 🌐
-Backend (Render)
+---
+
+## Deployment 🌐
+
+### Backend (Render)
+
 Deploy the backend to Render:
 
-Connect your repository to Render.
-Set the root directory to backend.
-Set the build command to npm run build.
-Set the start command to npm run start:prod.
-Add the environment variable PORT=3001.
-Verify the deployed API:
+1. Connect your repository to Render.
+2. Set the root directory to 
 
-Example Endpoint: https://your-backend-url/api/applications.
-Frontend (Vercel)
+backend
+
+.
+3. Set the build command to `npm run build`.
+4. Set the start command to `npm run start:prod`.
+5. Add the environment variable `PORT=3001`.
+
+Verify the deployed API:
+- Example Endpoint: `https://your-backend-url/api/applications`.
+
+### Frontend (Vercel)
+
 Deploy the frontend to Vercel:
 
-Connect your repository to Vercel.
-Set the root directory to frontend.
-Set the build command to npm run build.
-Set the output directory to .next.
-Add the environment variable NEXT_PUBLIC_API_URL=https://your-backend-url.
+1. Connect your repository to Vercel.
+2. Set the root directory to 
+
+frontend
+
+.
+3. Set the build command to `npm run build`.
+4. Set the output directory to `.next`.
+5. Add the environment variable `NEXT_PUBLIC_API_URL=https://your-backend-url`.
+
 Verify the deployed application:
+- Example: `https://your-frontend-url`.
 
-Example: https://your-frontend-url.
-API Endpoints 🔗
-Base URL
-https://your-backend-url/api
+---
 
-Endpoint	Method	Description
-/applications	GET	Fetch all job applications
-/applications/stats	GET	Fetch statistics (total and by status)
-Folder Structure 🗂️
-ruby
-Copy code
+## API Endpoints 🔗
+
+### Base URL
+`https://your-backend-url/api`
+
+| Endpoint           | Method | Description                           |
+| ------------------ | ------ | ------------------------------------- |
+| `/applications`    | GET    | Fetch all job applications            |
+| `/applications/stats` | GET    | Fetch statistics (total and by status) |
+
+---
+
+## Folder Structure 🗂️
+
+```
 UriCreative_Job_Dashboard/
 ├── backend/              # Backend (Nest.js)
 │   ├── src/
@@ -134,11 +160,21 @@ UriCreative_Job_Dashboard/
 │   │   │   ├── Filters.tsx
 │   ├── package.json
 ├── README.md             # Project Documentation
-Contributing 🤝
-Fork the repository.
-Create a new branch: git checkout -b feature-name.
-Commit your changes: git commit -m "Add feature".
-Push to the branch: git push origin feature-name.
-Open a pull request.
-License 📄
+```
+
+---
+
+## Contributing 🤝
+
+1. Fork the repository.
+2. Create a new branch: `git checkout -b feature-name`.
+3. Commit your changes: `git commit -m "Add feature"`.
+4. Push to the branch: `git push origin feature-name`.
+5. Open a pull request.
+
+---
+
+## License 📄
+
 This project is licensed under the MIT License. See the LICENSE file for details.
+```
