@@ -12,8 +12,8 @@ interface Filters {
 // Helper function to format date to mm/dd/yyyy
 const formatDate = (dateString: string): string => {
   const date = new Date(dateString);
-  const month = String(date.getMonth() + 1).padStart(2, '0');
-  const day = String(date.getDate()).padStart(2, '0');
+  const month = String(date.getMonth() + 1).padStart(2, '0'); // Add leading zero
+  const day = String(date.getDate()).padStart(2, '0'); // Add leading zero
   const year = date.getFullYear();
   return `${month}/${day}/${year}`;
 };
@@ -45,46 +45,47 @@ export default function ApplicationTable({ filters }: { filters: Filters }) {
     );
 
   return (
-    <div className="rounded-lg border border-gray-300 bg-white shadow-md p-10 max-w-7xl mx-auto">
-      <div className="overflow-hidden rounded-lg shadow-lg border w-full">
-        <table className="min-w-full border-collapse text-lg">
-          <thead className="bg-blue-600 text-white text-left">
-            <tr>
-              <th className="px-32 py-8 border-b">Job Title</th>
-              <th className="px-32 py-8 border-b">Company Name</th>
-              <th className="px-32 py-8 border-b">Status</th>
-              <th className="px-32 py-8 border-b">Date Applied</th>
+    <div className="rounded-lg border border-gray-300 bg-white shadow-md p-8 max-w-6xl mx-auto">
+    <h3 className="text-lg font-semibold text-gray-700 mb-4">Applications List</h3>
+    <div className="overflow-hidden rounded-lg shadow-lg border">
+      <table className="min-w-full border-collapse text-md">
+        <thead className="bg-blue-600 text-white text-center">
+          <tr>
+            <th className="px-6 py-4 border-b">Job Title</th>
+            <th className="px-6 py-4 border-b">Company Name</th>
+            <th className="px-6 py-4 border-b">Status</th>
+            <th className="px-6 py-4 border-b">Date Applied</th>
+          </tr>
+        </thead>
+        <tbody>
+          {applications.map((app, idx) => (
+            <tr
+              key={app.id}
+              className={`${
+                idx % 2 === 0 ? 'bg-gray-100' : 'bg-white'
+              } hover:bg-gray-200 transition-colors`}
+            >
+              <td className="px-6 py-4 text-center border-b">{app.jobTitle}</td>
+              <td className="px-6 py-4 text-center border-b">{app.companyName}</td>
+              <td className="px-6 py-4 text-center border-b">
+                <span
+                  className={`px-4 py-2 rounded-full text-sm font-medium ${
+                    app.status === 'accepted'
+                      ? 'bg-green-100 text-green-600'
+                      : app.status === 'pending'
+                      ? 'bg-yellow-100 text-yellow-600'
+                      : 'bg-red-100 text-red-600'
+                  }`}
+                >
+                  {app.status}
+                </span>
+              </td>
+              <td className="px-6 py-4 text-center border-b">{formatDate(app.dateApplied)}</td>
             </tr>
-          </thead>
-          <tbody>
-            {applications.map((app, idx) => (
-              <tr
-                key={app.id}
-                className={`${
-                  idx % 2 === 0 ? 'bg-gray-100' : 'bg-white'
-                } hover:bg-gray-200 transition-colors`}
-              >
-                <td className="px-32 py-8 border-b">{app.jobTitle}</td>
-                <td className="px-32 py-8 border-b">{app.companyName}</td>
-                <td className="px-32 py-8 border-b">
-                  <span
-                    className={`px-5 py-2 rounded-full text-sm font-medium ${
-                      app.status === 'accepted'
-                        ? 'bg-green-100 text-green-600'
-                        : app.status === 'pending'
-                        ? 'bg-yellow-100 text-yellow-600'
-                        : 'bg-red-100 text-red-600'
-                    }`}
-                  >
-                    {app.status}
-                  </span>
-                </td>
-                <td className="px-32 py-8 border-b">{formatDate(app.dateApplied)}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+          ))}
+        </tbody>
+      </table>
     </div>
+  </div>  
   );
 }
