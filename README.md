@@ -71,7 +71,7 @@ Install dependencies for both backend and frontend:
 - npm install
 
 # Navigate to frontend
-- cd ../frontend
+- cd frontend
 - npm install
 
 
