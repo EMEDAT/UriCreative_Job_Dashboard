@@ -7,15 +7,10 @@ export class JobApplicationController {
 
   @Get()
   getApplications(
-    @Query('status') status?: string,
-    @Query('startDate') startDate?: string,
-    @Query('endDate') endDate?: string,
+    @Query('status') status: string,
+    @Query('startDate') startDate: string,
+    @Query('endDate') endDate: string,
   ) {
     return this.jobApplicationService.getApplications({ status, startDate, endDate });
-  }
-
-  @Get('stats')
-  getStats() {
-    return this.jobApplicationService.getStats();
   }
 }

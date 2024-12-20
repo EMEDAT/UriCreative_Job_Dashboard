@@ -15,12 +15,12 @@ import { Bar } from 'react-chartjs-2';
 // Register components with Chart.js
 ChartJS.register(BarElement, CategoryScale, LinearScale, Tooltip, Legend);
 
-export default function StatisticsChart() {
+export default function StatisticsChart({ filters }: { filters: { status?: string; startDate?: string; endDate?: string } }) {
   const [stats, setStats] = useState<any>(null);
 
   useEffect(() => {
-    fetchStats().then(setStats).catch(console.error);
-  }, []);
+    fetchStats(filters).then(setStats).catch(console.error);
+  }, [filters]);
 
   if (!stats) return <p>Loading chart...</p>;
 
