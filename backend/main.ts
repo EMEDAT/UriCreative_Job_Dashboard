@@ -6,12 +6,12 @@ async function bootstrap() {
 
   // Enable CORS
   app.enableCors({
-    origin: 'https://uri-creative-job-dashboard-ysns.vercel.app', // Your frontend URL
+    origin: ['http://localhost:3000', 'https://uri-creative-job-dashboard-ysns.vercel.app'], // Allow localhost and production frontend
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-    credentials: true,
+    credentials: true, // Allow cookies if needed
   });
 
-  app.setGlobalPrefix('api');
+  app.setGlobalPrefix('api'); // API prefix
   await app.listen(3001);
   console.log('Backend running on http://localhost:3001/api');
 }
