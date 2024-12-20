@@ -1,21 +1,17 @@
+/* Import Tailwind base styles */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+/* Custom global styles */
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  @apply bg-gray-100 text-gray-800 font-sans;
+}
+
+h1, h2, h3 {
+  @apply font-bold;
+}
+
+button {
+  @apply rounded-lg shadow-md transition-all duration-300 ease-in-out hover:shadow-lg;
 }

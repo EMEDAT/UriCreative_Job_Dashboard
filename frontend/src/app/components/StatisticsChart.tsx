@@ -35,5 +35,9 @@ export default function StatisticsChart() {
     ],
   };
 
-  return <Bar data={data} />;
+  return (
+    <div className="p-6 bg-white rounded-lg shadow-lg">
+      <Bar data={data} />
+    </div>
+  );
 }
