@@ -9,6 +9,15 @@ interface Filters {
   endDate?: string;
 }
 
+// Helper function to format date to mm/dd/yyyy
+const formatDate = (dateString: string): string => {
+  const date = new Date(dateString);
+  const month = String(date.getMonth() + 1).padStart(2, '0'); // Add leading zero
+  const day = String(date.getDate()).padStart(2, '0'); // Add leading zero
+  const year = date.getFullYear();
+  return `${month}/${day}/${year}`;
+};
+
 export default function ApplicationTable({ filters }: { filters: Filters }) {
   const [applications, setApplications] = useState<any[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
@@ -70,7 +79,7 @@ export default function ApplicationTable({ filters }: { filters: Filters }) {
                     {app.status}
                   </span>
                 </td>
-                <td className="px-32 py-8 border-b">{app.dateApplied}</td>
+                <td className="px-32 py-8 border-b">{formatDate(app.dateApplied)}</td>
               </tr>
             ))}
           </tbody>

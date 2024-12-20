@@ -12,17 +12,23 @@ import {
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
 
-// Register components with Chart.js
 ChartJS.register(BarElement, CategoryScale, LinearScale, Tooltip, Legend);
 
-export default function StatisticsChart({ filters }: { filters: { status?: string; startDate?: string; endDate?: string } }) {
+interface Filters {
+  startDate?: string;
+  endDate?: string;
+}
+
+export default function StatisticsChart({ filters }: { filters?: Filters }) {
   const [stats, setStats] = useState<any>(null);
 
   useEffect(() => {
-    fetchStats(filters).then(setStats).catch(console.error);
+    fetchStats(filters)
+      .then(setStats)
+      .catch(console.error);
   }, [filters]);
 
-  if (!stats) return <p>Loading chart...</p>;
+  if (!stats) return <p className="text-center text-gray-500">Loading chart...</p>;
 
   const data = {
     labels: Object.keys(stats.statusCounts),

@@ -23,7 +23,7 @@ export class JobApplicationService {
     if (filters.startDate || filters.endDate) {
       const startDate = filters.startDate ? new Date(filters.startDate) : null;
       const endDate = filters.endDate ? new Date(filters.endDate) : null;
-      
+
       filteredApplications = filteredApplications.filter((app) => {
         const applicationDate = new Date(app.dateApplied);
         if (startDate && endDate) {
@@ -34,7 +34,7 @@ export class JobApplicationService {
           return applicationDate <= endDate;
         }
         return true;
-      });      
+      });
     }
 
     return filteredApplications;
